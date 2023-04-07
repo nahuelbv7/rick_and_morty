@@ -1,8 +1,11 @@
 .cards_container {
     display: flex;
+    align-items: center;
     flex-direction: row;
-    padding: 15px;
-    border: 8px solid rgba(255, 255, 255, 0.801);
+    border-radius: 1em;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
     
 };
 
