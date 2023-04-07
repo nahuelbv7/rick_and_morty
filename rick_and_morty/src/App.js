@@ -1,6 +1,6 @@
 import axios from "axios";
-
-import React, { useState } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Cards from './components/Cards.jsx';
 import NavBar from './components/NavBar.jsx';
@@ -11,7 +11,32 @@ import Detail from "./components/Detail";
 import Login from "./components/Login";
 
 export function App() {
+
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+  const EMAIL = 'nahuel@gmail.com';
+  const PASSWORD = 'Nahuel1234';
+  
+ 
   const [characters, setCharacters] = useState([]);
+  const location = useLocation();
+  
+  function login(inputs) {
+    if (inputs.password === PASSWORD && inputs.email === EMAIL) {
+       setAccess(true);
+       navigate('/home');
+    }
+ }
+
+ function logout() {
+     setAccess(false);
+     navigate('/');
+ }
+
+ useEffect(() => {
+    !access && navigate("/");
+ },[access]);
+
 
   function onSearch(id) {
     axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
@@ -37,12 +62,15 @@ export function App() {
 
   return (
     <div className='App'>
-      <NavBar onSearch={onSearch}/>
+      {
+        location.pathname === "/" ? null : <NavBar logout={logout} onSearch={onSearch}/>
+      }
+      
       <Routes>
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/" element={<Login login={login}/>}></Route>
         <Route path="/home" element={<Cards onClose={onClose} characters={characters} />}></Route>
         <Route path="/about" element={<About />}></Route>
-        <Route path="/detail:id" element={<Detail />}></Route>
+        <Route path="/detail/:id" element={<Detail />}></Route>
       </Routes>
       
     </div>

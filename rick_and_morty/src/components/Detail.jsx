@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import React from "react";
-import "./Detail"
+import "./Detail.jsx"
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
