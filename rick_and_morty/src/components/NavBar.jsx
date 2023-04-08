@@ -13,6 +13,9 @@ export default function NavBar({onSearch, logout}) {
         <Link to="/about">
         <button>About</button>
         </Link>
+        <Link to="/favorites">
+        <button>Favorites</button>
+        </Link>
         <SearchBar onSearch={onSearch} />
         
         <button onClick={logout}>Logout</button>

@@ -1,12 +1,29 @@
-.card {
+/* .card {
     align-items: center;
     border: 2px solid rgba(0, 0, 0, 0.801);
     width: 22em;
     display: inline-block;
     padding: 1em;
     height: 44em
+}; */
+
+.card {
+    border: 2px solid rgb(85, 22, 22);
+    width: 22%;
+    font-size: 8px;
+    padding: 8px;
+    margin: 14px;
+    border-radius: 4px;
+    background-color: rgb(199, 52, 52);
 };
+
 
 img {
     width: 100%;
+    border-radius: 4px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
 }

@@ -9,6 +9,8 @@ import { Routes, Route } from "react-router-dom";
 import About from "./components/Abouts";
 import Detail from "./components/Detail";
 import Login from "./components/Login";
+import Favorites from "./components/Favorites"
+
 
 export function App() {
 
@@ -70,6 +72,7 @@ export function App() {
         <Route path="/" element={<Login login={login}/>}></Route>
         <Route path="/home" element={<Cards onClose={onClose} characters={characters} />}></Route>
         <Route path="/about" element={<About />}></Route>
+        <Route path="/favorites" element={<Favorites onClose={onClose}  />}></Route>
         <Route path="/detail/:id" element={<Detail />}></Route>
       </Routes>
       
